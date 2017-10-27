@@ -1,0 +1,136 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>reveal.js</title>
+
+	<link rel="stylesheet" href="css/reveal.css">
+	<link rel="stylesheet" href="css/theme/black.css">
+
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="lib/css/zenburn.css">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section>
+				<h1>Hello</h1>
+
+				<p>My name is Daniel Bider</p>
+
+				<p>Presentation at todo</p>
+			</section>
+			<section data-background-image="/res/rust_logo.png" data-background-size="contain">
+				<h1>Rust in a nutshell</h1>
+
+				<ul>
+					<li>compiled to native</li>
+					<li>functional (kind of, also procedural, imperative)</li>
+					<li>concurrent</li>
+					<li>open source !</li>
+					<li>memory safety (thanks lifetimes)</li>
+					<li>integrated package manager (thanks Cargo)</li>
+					<li>awesome compiler</li>
+					<li>toolchains for lots of platforms
+						<a href="https://github.com/rust-lang-nursery/rustup.rs#other-installation-methods">(here)</a>
+					</li>
+				</ul>
+
+				<aside class="notes">
+					Rust is multiparadigm in general, but focuses on functional and concurrent paradigms. Cargo using crates. Rustup to install
+					rust
+				</aside>
+			</section>
+			<section>
+				<h1>Rust in a crapshell</h1>
+
+				<ul>
+					<li>very steep learning curve</li>
+					<li>functional with borrows - problems with cyclic data structures (like graphs)</li>
+					<li>quite long compilation time</li>
+					<li>no official IDE</li>
+					<li>tempting 'unsafe rust'</li>
+					<li>no enterprise level libraries</li>
+				</ul>
+			</section>
+			<section>
+				<h1>Rust in.. general</h1>
+
+				<ul>
+					<li>no destructors</li>
+					<li>no objectivity <a href="https://doc.rust-lang.org/book/second-edition/ch17-00-oop.html">(for some at least)</a>
+						<ul>
+							<li>method overloading -> trait boundaries</li>
+							<li>little different polymoprhysm <a href="http://keepcalmandlearnrust.com/2017/03/polymorphism-in-rust-enum-vs-trait-struct/">(have a read)</a></li>
+							<li>inheritance -> composition</li>
+							<li>interface -> trait</li>
+							<li>class -> struct</li>
+							<li>no constructors</li>
+						</ul>
+					</li>
+					<li>very restrictive</li>
+				</ul>
+			</section>
+			<section>
+				<h1>Moving/Copying</h1>
+				<p>example0.rs</p>
+				<a href="https://rustbyexample.com/scope/move.html">https://rustbyexample.com/scope/move.html</a>
+			</section>
+			<section>
+				<h1>Cloning</h1>
+				<p>example1.rs</p>
+				<a href="https://doc.rust-lang.org/1.9.0/core/clone/trait.Clone.html">Rust 'Clone' trait documentation</a>
+
+				<aside class="notes">
+					Run main function, show that results are actually the same
+				</aside>
+			</section>
+			<section>
+				<h1>Borrowing</h1>
+				<p>example2.rs</p>
+				<a href="https://rustbyexample.com/scope/borrow.html">https://rustbyexample.com/scope/borrow.html</a>
+			</section>
+			<section>
+				<h1>Ellision</h1>
+				<a href="https://rustbyexample.com/scope/lifetime/elision.html">https://rustbyexample.com/scope/lifetime/elision.html</a>
+			</section>
+			<section>
+				<h1>Lifetimes</h1>
+				<p>example3.rs</p>
+				<a href="https://rustbyexample.com/scope/lifetime.html">https://rustbyexample.com/scope/lifetime.html</a>
+			</section>
+		</div>
+	</div>
+
+	<script src="lib/js/head.min.js"></script>
+	<script src="js/reveal.js"></script>
+
+	<script>
+		// More info about config & dependencies:
+		// - https://github.com/hakimel/reveal.js#configuration
+		// - https://github.com/hakimel/reveal.js#dependencies
+		Reveal.initialize({
+			dependencies: [
+				{ src: 'plugin/markdown/marked.js' },
+				{ src: 'plugin/markdown/markdown.js' },
+				{ src: 'plugin/notes/notes.js', async: true },
+				{ src: 'plugin/highlight/highlight.js', async: true, callback: function () { hljs.initHighlightingOnLoad(); } }
+			]
+		});
+	</script>
+</body>
+
+</html>

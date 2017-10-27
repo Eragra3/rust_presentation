@@ -1,0 +1,6 @@
+[package]
+name = "borrowck"
+version = "0.1.0"
+authors = ["bider"]
+
+[dependencies]
