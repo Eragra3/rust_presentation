@@ -1,22 +1,34 @@
 #[cfg(test)]
 mod tests {
+    
+    struct Context<'s>(&'s str);
 
-    #[derive(Debug)]
-    enum Name3 {
-        Name1{ dupa: string },
-        Name2,
+    struct Parser<'c, 's: 'c> {
+        context: &'c Context<'s>,
     }
 
-    fn foo<'a, 'b: 'a>(&Name{ ref dupa }: &'a Name) -> () {
-        unimplemented!();
+    impl<'c, 's> Parser<'c, 's> {
+        pub fn parse(&self) -> Result<(), &'s str> {
+            Err(self.context.0)
+        }
     }
 
-    fn name<T>(predicate: impl Fn(T) -> bool){
-        unimplemented!();
+    fn parse_context(context: Context) -> Result<(), &str> {
+        Parser { context: &context }.parse()
     }
 
     #[test]
     fn lifetime_bounds() {
 
+        let parsed_value;
+
+        {
+            parsed_value = parse_context(Context("Some text"));
+        }
+
+        match parsed_value {
+            Ok(_) => (),
+            Err(msg) => println!("{:?}", msg),
+        }
     }
 }

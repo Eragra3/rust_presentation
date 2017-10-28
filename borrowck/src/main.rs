@@ -1,4 +1,6 @@
 
+// COPYING
+
 fn gimme_string_with_suffix<T: ToString>(n: T) -> String {
     let mut s = "Here you go".to_string();
     s.push_str(&n.to_string());
